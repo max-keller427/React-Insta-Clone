@@ -9,7 +9,8 @@ function PostContainer(props) {
     <div>
       <div>
         <h2>{props.profile.username}</h2>
-        <img src={props.profile.imageUrl} />
+        <img src={props.profile.thumbnailUrl} alt="Profile Picture" />
+        <img src={props.profile.imageUrl} alt="Post Image" />
       </div>
       <div>
         {props.profile.comments.map(comment => (
