@@ -3,6 +3,7 @@ import "./App.css";
 
 import dummyData from "./dummy-data";
 import PostContainer from "./Components/PostContainer/PostContainer";
+import NavBar from "./Components/NavBar/NavBar";
 
 class App extends Component {
   constructor() {
@@ -13,14 +14,16 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Instagram</h1>
-        </header>
-        <div>
-          {this.state.dummyData.map(profile => (
-            <PostContainer profile={profile} />
-          ))}
+      <div className="container">
+        <div className="App">
+          <div>
+            <NavBar />
+          </div>
+          <div>
+            {this.state.dummyData.map(profile => (
+              <PostContainer profile={profile} />
+            ))}
+          </div>
         </div>
       </div>
     );
