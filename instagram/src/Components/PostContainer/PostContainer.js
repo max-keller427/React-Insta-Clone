@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./PostContainer.css";
 
 import like from "../../Img/like.PNG";
-import follow from "../../Img/follow.PNG";
+import comment from "../../Img/comment.PNG";
 
 import CommentSection from "../CommentSection/CommentSection";
 
@@ -20,17 +20,22 @@ function PostContainer(props) {
       </div>
       <div className="dynamic">
         <div>
-          <img src={like} className="like" />
-          <img src={follow} className="follow" />
+          <a href="">
+            <img src={like} className="like" />
+          </a>
+          <a href="">
+            <img src={comment} className="comment" />
+          </a>
         </div>
-        <p>{props.profile.likes} likes</p>
+        <p>
+          <strong>{props.profile.likes} likes</strong>
+        </p>
         {props.profile.comments.map(comment => (
           <CommentSection comment={comment} />
         ))}
       </div>
       <div>
-        <p>Add a comment...</p>
-        <input type="text" />
+        <input type="text" placeholder="Add a comment..." className="input" />
       </div>
     </div>
   );
