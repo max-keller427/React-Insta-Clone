@@ -1,0 +1,14 @@
+.container {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.App {
+  text-align: center;
+  margin: 2px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+
+.App-nav {
+}
