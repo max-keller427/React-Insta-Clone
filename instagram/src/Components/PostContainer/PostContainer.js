@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./PostContainer.css";
 
+import like from "../../Img/like.PNG";
+import follow from "../../Img/follow.PNG";
+
 import CommentSection from "../CommentSection/CommentSection";
 
 function PostContainer(props) {
@@ -15,7 +18,12 @@ function PostContainer(props) {
       <div className="post">
         <img src={props.profile.imageUrl} alt="Post" />
       </div>
-      <div>
+      <div className="dynamic">
+        <div>
+          <img src={like} className="like" />
+          <img src={follow} className="follow" />
+        </div>
+        <p>{props.profile.likes} likes</p>
         {props.profile.comments.map(comment => (
           <CommentSection comment={comment} />
         ))}

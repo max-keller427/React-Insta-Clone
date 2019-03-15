@@ -25,3 +25,16 @@
   width: 592px;
   height: 592px;
 }
+
+.dynamic {
+  padding: 10px;
+}
+.dynamic div {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dynamic p {
+  display: flex;
+  justify-content: flex-start;
+}
