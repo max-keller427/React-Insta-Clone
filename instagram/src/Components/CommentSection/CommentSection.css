@@ -8,3 +8,13 @@
   font-size: 14px;
   margin-top: 0;
 }
+
+/* .name-comment {
+  display: flex;
+  flex-direction: column;
+} */
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+}

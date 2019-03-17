@@ -9,8 +9,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      dummyData: dummyData
+      dummyData: []
     };
+  }
+  componentDidMount() {
+    this.setState({ dummyData: dummyData });
   }
   render() {
     return (
@@ -20,8 +23,11 @@ class App extends Component {
             <NavBar />
           </div>
           <div>
-            {this.state.dummyData.map(profile => (
-              <PostContainer profile={profile} />
+            {this.state.dummyData.map((profile, index) => (
+              <PostContainer
+                profile={profile}
+                key={`${profile.username}${index}`}
+              />
             ))}
           </div>
         </div>

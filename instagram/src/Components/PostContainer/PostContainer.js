@@ -8,7 +8,8 @@ import comment from "../../Img/comment.PNG";
 import CommentSection from "../CommentSection/CommentSection";
 
 function PostContainer(props) {
-  console.log(props);
+  // console.log("post container");
+  // console.log(props);
   return (
     <div className="post-container">
       <div className="post-header">
@@ -20,7 +21,7 @@ function PostContainer(props) {
       </div>
       <div className="dynamic">
         <div>
-          <a href="">
+          <a href="#">
             <img src={like} className="like" />
           </a>
           <a href="">
@@ -30,12 +31,7 @@ function PostContainer(props) {
         <p>
           <strong>{props.profile.likes} likes</strong>
         </p>
-        {props.profile.comments.map(comment => (
-          <CommentSection comment={comment} />
-        ))}
-      </div>
-      <div>
-        <input type="text" placeholder="Add a comment..." className="input" />
+        <CommentSection comments={props.profile.comments} />
       </div>
     </div>
   );
