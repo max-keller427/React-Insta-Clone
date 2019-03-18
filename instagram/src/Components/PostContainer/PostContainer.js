@@ -11,8 +11,8 @@ class PostContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: props.profile.likes
-      // liked: false
+      likes: props.profile.likes,
+      liked: false
     };
   }
   addLikes = (e, i) => {
@@ -28,8 +28,8 @@ class PostContainer extends React.Component {
     });
   };
   render() {
-    console.log("post container");
-    console.log(this.state.likes);
+    // console.log("post container");
+    // console.log(this.state.likes);
     return (
       <div className="post-container">
         <div className="post-header">

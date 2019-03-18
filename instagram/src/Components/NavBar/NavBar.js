@@ -6,9 +6,10 @@ import instagram from "../../Img/instagram.PNG";
 import compass from "../../Img/compass.PNG";
 import like from "../../Img/like.PNG";
 import follow from "../../Img/follow.PNG";
-import magGlass from "../../Img/mag-glass.PNG";
+// import magGlass from "../../Img/mag-glass.PNG";
 
-function NavBar() {
+function NavBar(props) {
+  console.log(props);
   return (
     <div className="nav">
       <div className="left-nav">
@@ -19,7 +20,11 @@ function NavBar() {
           <img src={instagram} className="instagram" />
         </a>
       </div>
-      <input type="text" placeholder="Search" />
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={props.inputChangeHandler}
+      />
       <div className="right-nav">
         <a href="">
           <img src={compass} />
