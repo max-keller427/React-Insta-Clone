@@ -18,9 +18,13 @@ const withAuthenticate = One => Two => {
         this.setState({ loggedIn: true });
       }
     }
+    submitLogin() {}
+
     render() {
       if (this.state.loggedIn === true) {
         return <One />;
+      } else {
+        return <Two />;
       }
     }
   };

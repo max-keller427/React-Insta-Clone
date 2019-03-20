@@ -4,10 +4,7 @@ import "./App.css";
 import dummyData from "./dummy-data";
 import NavBar from "./Components/NavBar/NavBar";
 import PostsPage from "./Components/PostContainer/PostsPage";
-import withAuthenticate from "../src/Authentication/withAuthenticate";
-import Login from "./Components/Login/Login";
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 class App extends Component {
   constructor() {
     super();
