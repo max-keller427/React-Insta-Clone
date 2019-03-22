@@ -37,4 +37,29 @@
 .dynamic p {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.like {
+  width: 35px;
+  height: 35px;
+}
+
+.comment {
+  margin-top: 4px;
+  width: 32px;
+  height: 32px;
+}
+
+.input {
+  width: 96%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: none;
+  border-top: 1px solid lightgrey;
+}
+.input:focus {
+  outline: none;
 }

@@ -3,37 +3,59 @@ import PropTypes from "prop-types";
 import "./PostContainer.css";
 
 import like from "../../Img/like.PNG";
-import follow from "../../Img/follow.PNG";
+import comment from "../../Img/comment.PNG";
 
 import CommentSection from "../CommentSection/CommentSection";
 
-function PostContainer(props) {
-  console.log(props);
-  return (
-    <div className="post-container">
-      <div className="post-header">
-        <h2>{props.profile.username}</h2>
-        <img src={props.profile.thumbnailUrl} alt="Profile" />
-      </div>
-      <div className="post">
-        <img src={props.profile.imageUrl} alt="Post" />
-      </div>
-      <div className="dynamic">
-        <div>
-          <img src={like} className="like" />
-          <img src={follow} className="follow" />
+class PostContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: props.profile.likes,
+      liked: false
+    };
+  }
+  addLikes = (e, i) => {
+    e.preventDefault();
+    // let newLikes = {
+    //   likes: this.state.likes
+    // };
+    this.setState(prevState => {
+      return {
+        likes: prevState.liked ? prevState.likes - 1 : prevState.likes + 1,
+        liked: !prevState.liked
+      };
+    });
+  };
+  render() {
+    // console.log("post container");
+    // console.log(this.state.likes);
+    return (
+      <div className="post-container">
+        <div className="post-header">
+          <h2>{this.props.profile.username}</h2>
+          <img src={this.props.profile.thumbnailUrl} alt="Profile" />
         </div>
-        <p>{props.profile.likes} likes</p>
-        {props.profile.comments.map(comment => (
-          <CommentSection comment={comment} />
-        ))}
+        <div className="post">
+          <img src={this.props.profile.imageUrl} alt="Post" />
+        </div>
+        <div className="dynamic">
+          <div>
+            <a href="#" onClick={this.addLikes}>
+              <img src={like} className="like" />
+            </a>
+            <a href="">
+              <img src={comment} className="comment" />
+            </a>
+          </div>
+          <p>
+            <strong>{this.state.likes} likes</strong>
+          </p>
+          <CommentSection comments={this.props.profile.comments} />
+        </div>
       </div>
-      <div>
-        <p>Add a comment...</p>
-        <input type="text" />
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 PostContainer.propTypes = {
