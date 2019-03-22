@@ -2,10 +2,11 @@ import React from "react";
 
 // import dummyData from "../../dummy-data";
 import PostContainer from "./PostContainer";
+import dummyData from "../../dummy-data";
 
 class PostsPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       dummyData: [],
       search: ""

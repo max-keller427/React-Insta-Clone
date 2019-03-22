@@ -10,18 +10,30 @@ class App extends Component {
     super();
     this.state = {
       dummyData: [],
+      filteredData: [],
       search: ""
     };
   }
   componentDidMount() {
     this.setState({ dummyData: dummyData });
   }
-  inputChangeHandler(e) {
+  inputChangeHandler = e => {
     this.setState({ search: e.target.value });
-  }
+  };
 
-  filterUser() {}
+  filterUser = e => {
+    e.preventDefault();
+    this.state.dummyData.map(post => {
+      post.filter(profile => {
+        if (profile.username.includes(e.target.value)) {
+          this.setState({ filteredData: profile });
+        }
+      });
+    });
+  };
   render() {
+    // console.log("app");
+    // console.log(this.state.dummyData.username);
     return (
       <div className="container">
         <div className="App">
@@ -31,7 +43,15 @@ class App extends Component {
               change={this.inputChangeHandler}
             />
           </div>
-          <PostsPage dummyData={this.state.dummyData} />
+          {
+            <PostsPage
+              dummyData={
+                this.state.filteredData.length > 0
+                  ? this.state.filteredData
+                  : this.state.dummyData
+              }
+            />
+          }
         </div>
       </div>
     );

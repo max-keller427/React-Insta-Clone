@@ -15,17 +15,16 @@
   padding-top: 4px;
 }
 
-.post-header h2 {
+/* .post-header h2 {
   order: 1;
   font-size: 15px;
   margin-left: 2%;
-}
+} */
 
-.post img {
+/* .post img {
   width: 592px;
   height: 592px;
-}
-
+} */
 .dynamic {
   padding: 10px;
 }

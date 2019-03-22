@@ -1,11 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./PostContainer.css";
+import styled, { css } from "styled-components";
 
 import like from "../../Img/like.PNG";
 import comment from "../../Img/comment.PNG";
 
 import CommentSection from "../CommentSection/CommentSection";
+
+const PostHeaderh2 = styled.h2`
+  order: 1;
+  font-size: 15px;
+  margin-left: 2%;
+`;
+
+const PostImg = styled.img`
+  width: 10px;
+  height: 10px;
+`;
 
 class PostContainer extends React.Component {
   constructor(props) {
@@ -29,12 +41,12 @@ class PostContainer extends React.Component {
   };
   render() {
     // console.log("post container");
-    // console.log(this.state.likes);
+    // console.log(this.props.profile.username);
     return (
       <div className="post-container">
         <div className="post-header">
-          <h2>{this.props.profile.username}</h2>
-          <img src={this.props.profile.thumbnailUrl} alt="Profile" />
+          <PostHeaderh2>{this.props.profile.username}</PostHeaderh2>
+          <PostImg src={this.props.profile.thumbnailUrl} alt="Profile" />
         </div>
         <div className="post">
           <img src={this.props.profile.imageUrl} alt="Post" />
