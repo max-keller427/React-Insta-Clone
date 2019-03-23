@@ -1,32 +1,54 @@
 import React from "react";
 
-// import dummyData from "../../dummy-data";
 import PostContainer from "./PostContainer";
-import dummyData from "../../dummy-data";
+import NavBar from "../NavBar/NavBar";
 
 class PostsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dummyData: [],
+      dummyData: props.dummyData,
+      filteredData: [],
       search: ""
     };
   }
-  //   componentDidMount() {
-  //     this.setState({ dummyData: dummyData });
-  //   }
-  filterUser() {}
+
+  inputChangeHandler = e => {
+    this.setState({ search: e.target.value });
+  };
+  filterUser = e => {
+    e.preventDefault();
+    // const post = this.state.dummyData.map(post => {
+    //   return post.username;
+    // });
+
+    const profile = this.state.dummyData.filter(profile => {
+      if (profile.username.includes(e.target.value)) {
+        return profile;
+      }
+    });
+    this.setState({ filteredData: profile });
+  };
   render() {
+    console.log("posts page");
+    console.log(this.state.dummyData);
     return (
       <div className="container">
         <div className="App">
           <div>
-            {this.props.dummyData.map((profile, index) => (
-              <PostContainer
-                profile={profile}
-                key={`${profile.username}${index}`}
-              />
-            ))}
+            <NavBar
+              // profile={this.state.dummyData}
+              change={this.inputChangeHandler}
+            />
+          </div>
+          <div>
+            <PostContainer
+              dummyData={
+                this.state.filteredData.length > 0
+                  ? this.state.filteredData
+                  : this.state.dummyData
+              }
+            />
           </div>
         </div>
       </div>
