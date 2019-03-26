@@ -30,15 +30,15 @@ class PostsPage extends React.Component {
     this.setState({ filteredData: profile });
   };
   render() {
-    console.log("posts page");
-    console.log(this.state.dummyData);
+    // console.log("posts page");
+    // console.log(this.state.dummyData);
     return (
       <div className="container">
         <div className="App">
           <div>
             <NavBar
               // profile={this.state.dummyData}
-              change={this.inputChangeHandler}
+              change={this.filterUser}
             />
           </div>
           <div>

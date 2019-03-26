@@ -17,12 +17,15 @@ class App extends Component {
   }
 
   render() {
-    console.log("app");
-    console.log(this.state.dummyData);
+    // console.log("app");
+    // console.log(this.state.dummyData);
     return (
       <div className="container">
         <div className="App">
+        {this.state.dummyData.length>0 ? (
+          
           <PostsPage dummyData={this.state.dummyData} />
+        ):<></>}
         </div>
       </div>
     );
